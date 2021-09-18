@@ -19,15 +19,15 @@ export class InterestHobbiesService {
         return await this.model.findById(id).exec();
     }
 
-    async create(createTodoDto: CreateInterestHobbyDto): Promise<InterestHobby> {
+    async create(createInterestHobbyDto: CreateInterestHobbyDto): Promise<InterestHobby> {
         return await new this.model({
-            ...createTodoDto,
+            ...createInterestHobbyDto,
             createdAt: new Date(),
         }).save();
     }
 
-    async update(id: string, updateTodoDto: UpdateInterestHobbyDto): Promise<InterestHobby> {
-        return await this.model.findByIdAndUpdate(id, updateTodoDto).exec();
+    async update(id: string, updateInterestHobbyDto: UpdateInterestHobbyDto): Promise<InterestHobby> {
+        return await this.model.findByIdAndUpdate(id, updateInterestHobbyDto).exec();
     }
 
     async delete(id: string): Promise<InterestHobby> {

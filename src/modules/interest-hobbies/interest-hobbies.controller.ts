@@ -27,13 +27,13 @@ export class InterestHobbiesController {
     }
 
     @Post()
-    async create(@Body() createTodoDto: CreateInterestHobbyDto) {
-        return await this.service.create(createTodoDto);
+    async create(@Body() createInterestHobbyDto: CreateInterestHobbyDto) {
+        return await this.service.create(createInterestHobbyDto);
     }
 
     @Put(':id')
-    async update(@Param('id') id: string, @Body() updateTodoDto: UpdateInterestHobbyDto) {
-        return await this.service.update(id, updateTodoDto);
+    async update(@Param('id') id: string, @Body() updateInterestHobbyDto: UpdateInterestHobbyDto) {
+        return await this.service.update(id, updateInterestHobbyDto);
     }
 
     @Delete(':id')

@@ -5,12 +5,14 @@ import { AppService } from './app.service';
 import config from './config/keys';
 
 import { MongooseModule } from '@nestjs/mongoose';
-import { InterestHobbiesModule } from './modules/app/interest-hobbies/interest-hobbies.module';
+import { InterestHobbiesModule } from './modules/interest-hobbies/interest-hobbies.module';
+import { ProfessionalAboutModule } from './modules/professional-about/professional-about.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(config.mongoURI),
-    InterestHobbiesModule
+    InterestHobbiesModule,
+    ProfessionalAboutModule
   ],
   controllers: [AppController],
   providers: [AppService],
