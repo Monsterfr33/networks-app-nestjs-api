@@ -113,6 +113,9 @@ export class ProfessionalAbout {
   @Prop()
   website: string;
 
+  @Prop()
+  image: string;
+
   // Use the generated InterestHobby Schema as type.
   @Prop({ type: [InterestHobbySchema] })
   interestHobbies: InterestHobby[]
