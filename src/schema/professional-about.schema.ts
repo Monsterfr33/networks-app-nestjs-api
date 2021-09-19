@@ -3,6 +3,16 @@ import { Document } from 'mongoose';
 
 export type ProfessionalAboutDocument = ProfessionalAbout & Document;
 
+// ------ InterestHobby Schema ------
+@Schema()
+export class InterestHobby {
+  @Prop()
+  text: string;
+}
+
+// Generate a Mongoose Schema before use as Subdocument
+const InterestHobbySchema = SchemaFactory.createForClass(InterestHobby);
+
 // ------ Education Schema ------
 @Schema()
 export class Education {
@@ -99,6 +109,10 @@ export class ProfessionalAbout {
 
   @Prop()
   website: string;
+
+  // Use the generated InterestHobby Schema as type.
+  @Prop({ type: [InterestHobbySchema] })
+  interestHobbies: InterestHobby[]
 
   // Use the generated Education Schema as type.
   @Prop({ type: [EducationSchema] })
