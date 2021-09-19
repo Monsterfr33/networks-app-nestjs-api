@@ -14,6 +14,9 @@ https://github.com/carlomigueldy/nest-js-todo-rest-api
 ## Authentication
 https://docs.nestjs.com/security/authentication
 
+## CORS
+https://docs.nestjs.com/security/cors
+
 ## init new nest app
 > nest new thrashtech-nestjs-api
 
