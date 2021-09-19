@@ -93,16 +93,19 @@ const SkillSchema = SchemaFactory.createForClass(Skill);
 @Schema()
 export class ProfessionalAbout {
   @Prop({ required: true })
-  title: string;
+  name: string;
+
+  @Prop({ required: true })
+  professionalTitle: string;
 
   @Prop()
-  about: string;
+  aboutUs: string;
 
   @Prop()
   email: string;
 
   @Prop()
-  contact: string;
+  phone: string;
 
   @Prop()
   address: string;
