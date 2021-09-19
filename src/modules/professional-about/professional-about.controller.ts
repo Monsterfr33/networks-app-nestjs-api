@@ -6,11 +6,14 @@ import {
     Param,
     Post,
     Put,
+    UseGuards,
 } from '@nestjs/common';
 import { CreateProfessionalAboutDto } from 'src/dto/professional-about/create-professional-about.dto';
 import { UpdateProfessionalAboutDto } from 'src/dto/professional-about/update-professional-about.dto';
 import { ProfessionalAboutService } from './professional-about.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('professional-about')
 export class ProfessionalAboutController {
     constructor(private readonly service: ProfessionalAboutService) { }
