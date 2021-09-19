@@ -7,8 +7,12 @@
 
 # Guide to Develop Backend using NESTJS
 
+## Rest API
 https://dev.to/carlomigueldy/building-a-restful-api-with-nestjs-and-mongodb-mongoose-2165
 https://github.com/carlomigueldy/nest-js-todo-rest-api
+
+## Authentication
+https://docs.nestjs.com/security/authentication
 
 ## init new nest app
 > nest new thrashtech-nestjs-api
