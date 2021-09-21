@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import * as bcrypt from 'bcrypt';
 
 import { CreateUsersDto } from 'src/dto/users/create-users.dto';
 import { UpdateUsersDto } from 'src/dto/users/update-users.dto';
@@ -11,6 +12,8 @@ export type User = any;
 
 @Injectable()
 export class UsersService {
+    saltOrRounds: number = 10;
+
     constructor(
         @InjectModel(Users.name) 
         private readonly model: Model<UsersDocument>
@@ -20,19 +23,23 @@ export class UsersService {
         return await this.model.find().exec();
     }
 
-    async findOne(id: string): Promise<Users> {
-        return await this.model.findById(id).exec();
+    async findOne(email: string): Promise<Users> {
+        return await this.model.findById(email).exec();
     }
 
-    async create(createUsersDto: CreateUsersDto): Promise<Users> {
+    async create(createUsersDto: CreateUsersDto): Promise<String> {
         const users = await this.model.find().exec();
         const user = users.find(user => user.username === createUsersDto.username);
+        const hashedPass = await bcrypt.hash(createUsersDto.password, this.saltOrRounds);
 
         if (!user) {
-            return await new this.model({
-                ...createUsersDto,
+            let request = await new this.model({
+                username: createUsersDto.username,
+                password: hashedPass,
                 createdAt: new Date(),
             }).save();
+
+            if (request) return "User created successfully."
         }
         return null;
     }
