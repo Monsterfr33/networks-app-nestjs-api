@@ -27,7 +27,7 @@ export class UsersService {
         return await this.model.findById(email).exec();
     }
 
-    async create(createUsersDto: CreateUsersDto): Promise<String> {
+    async create(createUsersDto: CreateUsersDto): Promise<any> {
         const users = await this.model.find().exec();
         const user = users.find(user => user.username === createUsersDto.username);
         const hashedPass = await bcrypt.hash(createUsersDto.password, this.saltOrRounds);
@@ -39,7 +39,11 @@ export class UsersService {
                 createdAt: new Date(),
             }).save();
 
-            if (request) return "User created successfully."
+            if (request) {
+                const data = { username: request.username, createdAt: new Date() }
+                return data;
+                // return "User created successfully."
+            } 
         }
         return null;
     }

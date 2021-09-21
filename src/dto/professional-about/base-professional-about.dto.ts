@@ -1,7 +1,9 @@
 export class BaseProfessionalAbout {
     title: string
+    name: string
     about: string
     email: string
+    password: string
     contact: string
     address: string
     website: string

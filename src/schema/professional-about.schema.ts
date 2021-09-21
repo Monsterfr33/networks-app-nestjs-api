@@ -96,7 +96,7 @@ export class ProfessionalAbout {
   name: string;
 
   @Prop({ required: true })
-  professionalTitle: string;
+  title: string;
 
   @Prop()
   aboutUs: string;
