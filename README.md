@@ -13,6 +13,8 @@ https://github.com/carlomigueldy/nest-js-todo-rest-api
 
 ## Authentication
 https://docs.nestjs.com/security/authentication
+https://docs.nestjs.com/security/encryption-and-hashing
+https://wanago.io/2020/05/25/api-nestjs-authenticating-users-bcrypt-passport-jwt-cookies/
 
 ## CORS
 https://docs.nestjs.com/security/cors
