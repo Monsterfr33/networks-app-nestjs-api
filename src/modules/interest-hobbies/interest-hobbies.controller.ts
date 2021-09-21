@@ -13,7 +13,6 @@ import { UpdateInterestHobbyDto } from 'src/dto/interest-hobbies/update-interest
 import { InterestHobbiesService } from './interest-hobbies.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
-@UseGuards(JwtAuthGuard)
 @Controller('interest-hobbies')
 export class InterestHobbiesController {
 
@@ -29,16 +28,19 @@ export class InterestHobbiesController {
         return await this.service.findOne(id);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Post()
     async create(@Body() createInterestHobbyDto: CreateInterestHobbyDto) {
         return await this.service.create(createInterestHobbyDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Put(':id')
     async update(@Param('id') id: string, @Body() updateInterestHobbyDto: UpdateInterestHobbyDto) {
         return await this.service.update(id, updateInterestHobbyDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Delete(':id')
     async delete(@Param('id') id: string) {
         return await this.service.delete(id);

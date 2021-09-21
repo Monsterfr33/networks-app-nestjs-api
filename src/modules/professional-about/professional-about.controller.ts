@@ -13,7 +13,6 @@ import { UpdateProfessionalAboutDto } from 'src/dto/professional-about/update-pr
 import { ProfessionalAboutService } from './professional-about.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
-@UseGuards(JwtAuthGuard)
 @Controller('professional-about')
 export class ProfessionalAboutController {
     constructor(private readonly service: ProfessionalAboutService) { }
@@ -33,11 +32,13 @@ export class ProfessionalAboutController {
         return await this.service.create(createProfessionalAboutDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Put(':id')
     async update(@Param('id') id: string, @Body() updateProfessionalAboutDto: UpdateProfessionalAboutDto) {
         return await this.service.update(id, updateProfessionalAboutDto);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Delete(':id')
     async delete(@Param('id') id: string) {
         return await this.service.delete(id);
