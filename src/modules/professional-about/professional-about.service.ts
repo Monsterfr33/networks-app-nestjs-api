@@ -19,8 +19,8 @@ export class ProfessionalAboutService {
         return await this.model.find().exec();
     }
 
-    async findOne(id: string): Promise<ProfessionalAbout> {
-        return await this.model.findById(id).exec();
+    async findOne(email: string): Promise<ProfessionalAbout> {
+        return await this.model.findById(email).exec();
     }
 
     async create(createProfessionalAboutDto: CreateProfessionalAboutDto): Promise<String> {
