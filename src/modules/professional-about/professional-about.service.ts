@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpCode, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
@@ -23,7 +23,7 @@ export class ProfessionalAboutService {
         return await this.model.findById(email).exec();
     }
 
-    async create(createProfessionalAboutDto: CreateProfessionalAboutDto): Promise<String> {
+    async create(createProfessionalAboutDto: CreateProfessionalAboutDto): Promise<any> {
         let user = {
             username: createProfessionalAboutDto.email,
             password: createProfessionalAboutDto.password
@@ -40,10 +40,14 @@ export class ProfessionalAboutService {
             }).save();
 
             if(request) {
-                return "Profile created successfully."
+                return {
+                    email: createProfessionalAboutDto.email,
+                    createdAt: new Date()
+                }
+            } else {
+                return null
             }
         }
-        return "";
     }
 
     async update(id: string, updateProfessionalAboutDto: UpdateProfessionalAboutDto): Promise<ProfessionalAbout> {
