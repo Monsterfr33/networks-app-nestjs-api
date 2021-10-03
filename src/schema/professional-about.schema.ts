@@ -20,9 +20,6 @@ export class Education {
   image: string;
 
   @Prop()
-  universityName: string;
-
-  @Prop()
   degree: string;
 
   @Prop()
@@ -45,9 +42,6 @@ export class Experience {
   designation: string;
 
   @Prop()
-  companyName: string;
-
-  @Prop()
   startDate: Date;
 
   @Prop()
@@ -67,9 +61,6 @@ export class Certification {
   certification: string;
 
   @Prop()
-  companyName: string;
-
-  @Prop()
   startDate: Date;
 
   @Prop()
@@ -83,7 +74,16 @@ const CertificationSchema = SchemaFactory.createForClass(Certification);
 @Schema()
 export class Skill {
   @Prop()
+  image: string;
+
+  @Prop()
   name: string;
+
+  @Prop()
+  startDate: Date;
+
+  @Prop()
+  endDate: Date;
 }
 
 // Generate a Mongoose Schema before use as Subdocument

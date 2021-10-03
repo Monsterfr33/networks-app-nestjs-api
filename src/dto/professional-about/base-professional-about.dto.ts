@@ -10,7 +10,6 @@ export class BaseProfessionalAbout {
     educations: [
         {
             image: string,
-            universityName: string,
             degree: string,
             startDate: Date,
             endDate: Date
@@ -20,7 +19,6 @@ export class BaseProfessionalAbout {
         {
             image: string,
             designation: string,
-            companyName: string,
             startDate: Date,
             endDate: Date
         }
@@ -29,14 +27,16 @@ export class BaseProfessionalAbout {
         {
             image: string,
             certification: string,
-            companyName: string,
             startDate: Date,
             endDate: Date
         }
     ]
     skills: [
         {
-            name: string
+            image: string,
+            name: string,
+            startDate: Date,
+            endDate: Date
         }
     ]
 }
