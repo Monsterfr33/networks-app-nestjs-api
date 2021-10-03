@@ -108,7 +108,13 @@ export class ProfessionalAbout {
   phone: string;
 
   @Prop()
-  address: string;
+  country: string;
+
+  @Prop()
+  postal: string;
+
+  @Prop()
+  city: string;
 
   @Prop()
   website: string;

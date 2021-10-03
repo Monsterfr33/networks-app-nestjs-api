@@ -5,7 +5,9 @@ export class BaseProfessionalAbout {
     email: string
     password: string
     contact: string
-    address: string
+    country: string
+    postal: string
+    city: string
     website: string
     educations: [
         {
